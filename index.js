@@ -1,15 +1,22 @@
-module.exports = exports = function (map) {
-  const allowed_verbs = Object.keys(map).map(v => v.toUpperCase()).join(', ')
-
-  return (req, res, ...args) => {
-    res.setHeader('Access-Control-Request-Method', allowed_verbs)
-    const {method} = req
-    const fn = map[method.toLowerCase()]
-    if (!fn) {
-      res.writeHead(405)
-      res.end('Method Not Allowed')
-      return
-    }
-    return fn(req, res, ...args)
-  }
-}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = (verbs) => {
+    const allowedVerbs = Object.keys(verbs)
+        .map(v => v.toUpperCase())
+        .join(', ');
+    return async (req, res) => {
+        res.setHeader('Access-Control-Request-Method', allowedVerbs);
+        const { method } = req;
+        if (method) {
+            const handler = verbs[method.toLowerCase()];
+            if (!handler) {
+                res.writeHead(405);
+                res.end('Method Not Allowed');
+            }
+            else {
+                await handler(req, res);
+            }
+        }
+    };
+};
+//# sourceMappingURL=index.js.map

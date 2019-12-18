@@ -1,22 +1,45 @@
 {
-  "name": "micro-method-router",
+  "name": "next-method-router",
   "version": "0.1.0",
-  "description": "",
+  "description": "HTTP Method Router for Next.js API",
+  "keywords": [
+    "next",
+    "http",
+    "method",
+    "router"
+  ],
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamo/micro-method-router.git"
+    "url": "git+https://github.com/garth/next-method-router.git"
   },
-  "author": "Jarmo Isotalo <jarmo@isotalo.fi>",
+  "author": "Garth Williams <garth@wi.llia.ms>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamo/micro-method-router/issues"
+    "url": "https://github.com/garth/next-method-router/issues"
   },
-  "homepage": "https://github.com/jamo/micro-method-router#readme",
+  "homepage": "https://github.com/garth/next-method-router#readme",
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "jsxBracketSameLine": true,
+    "trailingComma": "es5"
+  },
   "devDependencies": {
-    "micro": "6.1.0"
+    "@types/node": "^12.12.20",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "next": "^9.1.6",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.3"
+  },
+  "peerDependencies": {
+    "next": "^9.0.0"
   }
 }

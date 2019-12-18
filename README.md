@@ -1,40 +1,44 @@
-# micro-method-router
+# next-method-router
 
-> Package to easily map HTTP requests to methods by HTTP verb with [micro](https://github.com/zeit/micro)
+> Package to easily map HTTP requests to methods by HTTP verb when using [Next.js API routes](https://nextjs.org/docs#api-routes)
 
 ## Installation
 
-Install using [npm](https://www.npmjs.com/):
 ```
-$ npm install --save micro-method-router
+$ yarn add next-method-router
 ```
 
 ## Usage
 
-```js
+```ts
+import router from 'next-method-router'
 
-const {send} = require('micro')
-const methods = require('micro-method-router')
-
-module.exports = methods({
+export default router<{ hello: string; message?: string }>({
   async get(req, res) {
-    return send(res, 200, `It's a GET request!`)
+    await doStuff()
+    return res.status(200).json({
+      hello: 'world',
+    })
   },
-  async post(req, res) {
-    return send(res, 200, `It's a POST request!`)
-  }
+  async put(req, res) {
+    return res.status(200).json({
+      hello: req.body.hello,
+      message: 'Thanks for the update!',
+    })
+  },
 })
 ```
 
 ## Credits
 
-Thanks [timneutkens](https://github.com/timneutkens/) for help crafting the public api for `micro-method-router`
+This is based on [micro-method-router](https://github.com/jamo/micro-method-router), but rewritten in typescript and
+designed to be used with Next.js API routes.
 
 ## License
 
 MIT License
 
-Copyright (c) 2016 Jarmo Isotalo
+Copyright (c) 2019 Garth Williams
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
