@@ -1,6 +1,6 @@
 {
   "name": "next-method-router",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HTTP Method Router for Next.js API",
   "keywords": [
     "next",
@@ -40,6 +40,6 @@
     "typescript": "^3.7.3"
   },
   "peerDependencies": {
-    "next": "^9.0.0"
+    "next": "9.x"
   }
 }
