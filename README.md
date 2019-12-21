@@ -20,7 +20,7 @@ export default router<{ hello: string; message?: string }>({
       hello: 'world',
     })
   },
-  async put(req, res) {
+  put(req, res) {
     return res.status(200).json({
       hello: req.body.hello,
       message: 'Thanks for the update!',
